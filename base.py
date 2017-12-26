@@ -56,3 +56,8 @@ print(moviesIterator.__next__())
 has_blank = " My name is XiaoTian "
 has_blank = has_blank.strip()
 print(has_blank)
+
+# 字典
+person = dict()
+person["name"] = "XiaoTian"
+print(person)
