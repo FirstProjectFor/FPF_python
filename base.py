@@ -1,6 +1,6 @@
 #!/bin/python3
 
-from util import print_array
+import print_array
 
 movies = ["老无所依", "藩篱", "岁月神偷"]
 
