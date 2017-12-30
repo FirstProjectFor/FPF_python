@@ -61,3 +61,37 @@ print(has_blank)
 person = dict()
 person["name"] = "XiaoTian"
 print(person)
+
+# []and()
+nums = [num * num for num in range(3)]
+for n in nums:
+    print(n)
+
+for n in nums:
+    print(n)
+
+nums = (num * num for num in range(3))
+
+for n in nums:
+    print(n)
+
+# 不会输出，nums此时为空
+for n in nums:
+    print(n)
+
+
+# yield 返回 generator object
+def create_generator():
+    for r in range(6):
+        # 等到真正使用的时候才会执行
+        yield r * r
+
+
+my_generator = create_generator()
+
+for v in my_generator:
+    print(v)
+
+# my_generator 已经被遍历一遍，里面没有元素
+for v in my_generator:
+    print(v)
