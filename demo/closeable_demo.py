@@ -1,10 +1,12 @@
 from contextlib import contextmanager
 
 
+# 可以用于 with 语句
 @contextmanager
 def custom_open(filename):
     f = open(filename)
     try:
+        # 需要的时候打开
         # yield is a keyword that is used like return, except the function will return a generator.
         yield f
     finally:

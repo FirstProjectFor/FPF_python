@@ -1,6 +1,4 @@
-#!/bin/python3
-
-import print_array
+from util import print_array
 
 movies = ["老无所依", "藩篱", "岁月神偷"]
 
@@ -49,9 +47,9 @@ for number in range(4):
 print()
 
 # iterator
-moviesIterator = enumerate(movies, 0)
-print(moviesIterator.__next__())
-print(moviesIterator.__next__())
+moviesIterator = iter(movies)
+print(moviesIterator.__next__)
+print(moviesIterator.__next__)
 
 has_blank = " My name is XiaoTian "
 has_blank = has_blank.strip()
@@ -95,3 +93,5 @@ for v in my_generator:
 # my_generator 已经被遍历一遍，里面没有元素
 for v in my_generator:
     print(v)
+
+

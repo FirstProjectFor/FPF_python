@@ -8,7 +8,7 @@ def readfile(file_path):
         with open(file_path, encoding="utf-8") as file_stream:
             for line in file_stream:
                 try:
-                    print(line, end="")
+                    yield line
                 except ValueError:
                     print(line, end="")
     except IOError as err:

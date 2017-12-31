@@ -1,4 +1,4 @@
-from timerecord import TimeRecord
+from demo.timerecord import TimeRecord
 
 records = list()
 records.append(TimeRecord.read_data(name="XiaoTian"))
