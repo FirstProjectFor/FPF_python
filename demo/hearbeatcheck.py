@@ -11,6 +11,7 @@ class HeartbeatCheck:
     def __init__(self):
         self.SMTP = "smtp.gmail.com:587"
         self.out = open(file="log.txt", mode="a", encoding="utf-8")
+        self.response = False
 
     def __send_by_gmail(self, g_username, g_password, title, content, send_to):
         # 邮件对象
@@ -52,17 +53,20 @@ class HeartbeatCheck:
         host = "http://www.sunfeilong.cn"
         res = requests.request("GET", host)
         if res.status_code != 200:
-            msg = [
-                "心跳检测程序没有检测到服务器没有回应",
-                "响应码：" + res.status_code,
-                "服务器：" + host,
-                "日期：" + datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            ]
-            self.__send_mail(title="服务器异常", content="\r\n".join(msg))
-            print("心跳检测程序没有检测到服务器没有回应... " + "\r\n".join(msg), file=self.out)
+            if self.response:
+                self.response = False
+                msg = [
+                    "心跳检测程序没有检测到服务器没有回应",
+                    "响应码：" + res.status_code,
+                    "服务器：" + host,
+                    "日期：" + datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                ]
+                self.__send_mail(title="服务器异常", content="\r\n".join(msg))
+                print("心跳检测程序没有检测到服务器没有回应... " + "\r\n".join(msg), file=self.out)
         else:
-            print("server: " + host + " is running! ", file=self.out)
-            self.out.flush()
+            self.response = True
+            # print("server: " + host + " is running! ", file=self.out)
+            # self.out.flush()
             pass
 
 
