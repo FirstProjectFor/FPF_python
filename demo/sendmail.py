@@ -19,7 +19,7 @@ class SendMail:
         :param g_password: gmail密码
         :param title:     邮件标题
         :param content:   邮件内容
-        :param send_to:   发送给谁[数组],such as ["sunfeilong1993@163.com"
+        :param send_to:   发送给谁[数组],such as ["sunfeilong1993@163.com]"
         :return: void
         """
         # 邮件对象
@@ -32,12 +32,16 @@ class SendMail:
         msg.attach(msg_data)
 
         mail_server = smtplib.SMTP(self.SMTP)
-        mail_server.ehlo()
-        mail_server.starttls()
-        mail_server.ehlo()
-        mail_server.login(g_username, g_password)
-        mail_server.sendmail(from_addr=g_username, to_addrs=send_to, msg=msg.as_string())
-        mail_server.quit()
+        try:
+            mail_server.ehlo()
+            mail_server.starttls()
+            mail_server.ehlo()
+            mail_server.login(g_username, g_password)
+            mail_server.sendmail(from_addr=g_username, to_addrs=send_to, msg=msg.as_string())
+            mail_server.quit()
+            mail_server.close()
+        except Exception as e:
+            print(e)
 
 
 to = ["sunfeilong1993@163.com"]
