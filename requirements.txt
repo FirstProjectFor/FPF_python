@@ -3,3 +3,4 @@ xpinyin
 requests
 pypiwin32
 mock
+apscheduler
