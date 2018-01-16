@@ -4,3 +4,4 @@ requests
 pypiwin32
 mock
 apscheduler
+pymongo
