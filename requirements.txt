@@ -6,3 +6,4 @@ mock
 apscheduler
 pymongo
 zmq
+stomp.py
