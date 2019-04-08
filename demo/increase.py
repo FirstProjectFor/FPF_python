@@ -1,7 +1,7 @@
 from util import printutil
 
 money = 10000 * 10
-everyday_increase = (0.04 / 365)
+everyday_increase = (0.10 / 365)
 printutil.print_key_value("本金是: ", str(money))
 printutil.print_key_value("每日收益是", everyday_increase)
 print("------------------------- ge -------------------------")
@@ -14,7 +14,7 @@ end = 1
 
 temp_money = money
 
-for day in range(365 * 100):
+for day in range(365 * 20):
     real_times = (temp_money - money) / money
     if real_times >= times:
         need_year = day / 365
