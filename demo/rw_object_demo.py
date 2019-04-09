@@ -1,6 +1,6 @@
 import pickle
 
-from util import printutil
+from util import print_util
 
 movies = ["老无所依", 1954,
           "藩篱", 1955,
@@ -16,8 +16,8 @@ try:
     with open(filename, mode="rb") as out:
         # 从文件中读取对象
         movies_copy = pickle.load(out)
-        printutil.print_key_value("movies_copy is list", str(isinstance(movies_copy, list)))
+        print_util.print_key_value("movies_copy is list", str(isinstance(movies_copy, list)))
 except IOError as err:
-    printutil.print_key_value("IOError", str(err))
+    print_util.print_key_value("IOError", str(err))
 except pickle.PickleError as p_err:
-    printutil.print_key_value("PickleError", str(p_err))
+    print_util.print_key_value("PickleError", str(p_err))

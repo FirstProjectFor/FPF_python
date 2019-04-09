@@ -1,8 +1,9 @@
 import unittest
 
 from tests.test_demo import TestDemo
-from tests.test_string import TestStringMethods
 from tests.test_print_util import TestPrintUtil
+from tests.test_string import TestStringMethods
+from tests.test_time_record import TestTimeRecord
 
 if __name__ == '__main__':
 
@@ -10,6 +11,7 @@ if __name__ == '__main__':
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestDemo))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestStringMethods))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestPrintUtil))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestTimeRecord))
 
     try:
         with open("test.txt", mode="w", encoding="utf-8") as t:

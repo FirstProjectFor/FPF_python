@@ -1,8 +1,8 @@
 import unittest
 
-from util import printutil
+from util import print_util
 
 
 class TestPrintUtil(unittest.TestCase):
     def test_print(self):
-        printutil.print_key_value("Key", "Value")
+        print_util.print_key_value("Key", "Value")

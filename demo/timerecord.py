@@ -1,5 +1,5 @@
 class TimeRecord:
-    def __init__(self, name, data, records=[]):
+    def __init__(self, name: str, data, records: list = list()):
         self.name = name
         self.data = data
         self.records = records
@@ -16,7 +16,7 @@ class TimeRecord:
     def top_five(self):
         return sorted(set([float(self.translate_time(r)) for r in self.records]))[0:5]
 
-    def add_record(self, record):
+    def add_record(self, record: str):
         self.records.append(record)
 
     def add_records(self, records):
@@ -28,9 +28,9 @@ class TimeRecord:
         return TimeRecord(data.pop(0), data.pop(0), data)
 
     @staticmethod
-    def translate_time(time_str):
+    def translate_time(time_str: str) -> str:
         if isinstance(time_str, float):
-            return time_str
+            return str(time_str)
         if ":" in time_str:
             splitter = ":"
         elif "-" in time_str:
