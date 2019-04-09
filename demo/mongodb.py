@@ -3,7 +3,7 @@ import pymongo
 from pymongo import InsertOne, UpdateMany, UpdateOne, DeleteOne, DeleteMany, ReplaceOne, IndexModel
 
 
-def init_db(cl, database="test"):
+def init_db(cl, database="tests"):
     return cl.get_database(database)
 
 
@@ -138,7 +138,7 @@ def bulk(db):
     requests.append(ReplaceOne({"name": "x"}, {"name": "x", "age": 23, "sex": "man"}))
     requests.append(DeleteOne({"name": "x"}))
     requests.append(DeleteMany({"name": "x"}))
-    result = db.get_collection("test").bulk_write(requests)
+    result = db.get_collection("tests").bulk_write(requests)
     print("bulk API", result.bulk_api_result, sep=" : ")
 
 
@@ -187,8 +187,8 @@ def geo_search(db):
 
 
 client = pymongo.MongoClient("localhost", 27017)
-d = init_db(client, "test")
-auth(d, "test", "000000")
+d = init_db(client, "tests")
+auth(d, "tests", "000000")
 insert_data(d)
 update_date(d)
 search_date(d)

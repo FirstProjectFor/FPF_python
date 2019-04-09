@@ -19,11 +19,11 @@ conn.start()
 conn.connect('admin', 'admin', wait=True)
 
 # 订阅
-conn.subscribe(destination='/queue/test', id=1, ack='auto')
+conn.subscribe(destination='/queue/tests', id=1, ack='auto')
 
 # 发送消息
 for times in range(100):
-    conn.send(body='Hello World! Times: ' + str(times), destination='/queue/test')
+    conn.send(body='Hello World! Times: ' + str(times), destination='/queue/tests')
 
 time.sleep(2)
 conn.disconnect()
