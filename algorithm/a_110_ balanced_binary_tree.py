@@ -8,7 +8,7 @@ class TreeNode:
 
 
 class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
+    def is_balanced(self, root: TreeNode) -> bool:
         return self.depth(root) != -1
 
     def depth(self, node: TreeNode) -> int:
