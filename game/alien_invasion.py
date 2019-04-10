@@ -1,4 +1,5 @@
 import pygame
+from pygame.sprite import Group
 
 import game.game_functions as gf
 from game.settings import Settings
@@ -11,13 +12,18 @@ def run_game():
 
     screen = pygame.display.set_mode([setting.screen_width, setting.screen_height])
     ship = Ship(setting, screen)
+
+    bullets = Group()
+
+    # title
     pygame.display.set_caption("Alien Invasion")
     bg_color = (255, 255, 255)
 
     while True:
-        gf.check_event(ship)
+        gf.check_event(setting, screen, ship, bullets)
         ship.update()
-        gf.update_screen(setting, screen, ship)
+        gf.update_bullets(bullets)
+        gf.update_screen(setting, screen, ship, bullets)
 
 
 run_game()
