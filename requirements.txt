@@ -1,4 +1,5 @@
 bs4
+pygame
 xpinyin
 requests
 pypiwin32
