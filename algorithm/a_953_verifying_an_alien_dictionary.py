@@ -1,13 +1,11 @@
 class Solution:
     def isAlienSorted(self, words, order):
-        m = {o: i for i, o in enumerate(order)}
-        words = [[m[w] for w in word] for word in words]
+        order_dict = {}
+        for index, o_c in enumerate(order):
+            order_dict[o_c] = index + 1
 
-        for w1, w2 in zip(words, words[1:]):
-            if w1 > w2:
-                return False
-
-        return True
+        words = [[order_dict[w] for w in word] for word in words]
+        return all(w2 > w1 for w1, w2 in zip(words, words[1:]))
 
 
 solution = Solution()
