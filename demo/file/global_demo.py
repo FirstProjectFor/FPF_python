@@ -1,4 +1,4 @@
 import glob
 
-for file in glob.glob("d://*//*"):
-    print(file)
+for file in glob.glob("d://*//*//*//*//*"):
+    print(glob.escape(file))
