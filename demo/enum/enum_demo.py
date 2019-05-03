@@ -36,7 +36,7 @@ class Foods(enum.Enum):
 
 
 for food in Foods:
-    print('key:{:<15}, value:{:<15}'.format(food.code, str(food.species)))
+    print('key:{}, value:{}'.format(food.code, food.species))
 
 
 # 字典
