@@ -6,11 +6,11 @@ class Solution:
         length = 0
         pre_in_range_number_length = 0
         result = 0
-        for index in range(len(A)):
-            if A[index] > R:
+        for value in A:
+            if value > R:
                 length = 0
                 pre_in_range_number_length = 0
-            elif L <= A[index]:
+            elif L <= value:
                 length = length + 1
                 pre_in_range_number_length = length
                 result = result + length
