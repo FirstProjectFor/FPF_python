@@ -15,6 +15,9 @@ class A829Test(TestCase):
         self.assertEqual(6, A_829.get_sum(1, 3))
         self.assertEqual(10, A_829.get_sum(1, 4))
         self.assertEqual(5050, A_829.get_sum(1, 100))
+        self.assertEqual(50005000, A_829.get_sum(1, 10000))
+        self.assertEqual(1250025000, A_829.get_sum(1, 50000))
+        self.assertEqual(5000050000, A_829.get_sum(1, 100000))
 
     def test_consecutiveNumbersSum(self):
         self.assertEqual(1, self.solution.consecutiveNumbersSum(1))
