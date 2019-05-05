@@ -3,25 +3,23 @@ class Solution:
         if not A or 0 == len(A):
             return 0
 
-        left_arr_length = 0
-        left_in_range_number = 0
-        left_in_range_number_sub_count = 0
+        start = 0
+        pre_in_range_number_index = -1
         result = 0
 
-        for number in A:
-            if number > R:
-                left_in_range_number = 0
-                left_arr_length = 0
-                left_in_range_number_sub_count = 0
+        for index in range(len(A)):
+            if A[index] > R:
+                start = -1
+                pre_in_range_number_index = -1
             else:
-                left_arr_length += 1
-                # in_range
-                if L <= number <= R:
-                    left_in_range_number = left_in_range_number + 1
-                    left_in_range_number_sub_count = left_arr_length
-                    result = result + left_arr_length
-                else:
-                    result = result + left_in_range_number_sub_count
+                if start < 0:
+                    start = index
+
+                if L <= A[index]:
+                    pre_in_range_number_index = index
+                    result = result + index - start + 1
+                elif pre_in_range_number_index >= 0:
+                    result = result + pre_in_range_number_index - start + 1
 
         return result
 
