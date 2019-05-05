@@ -3,23 +3,20 @@ class Solution:
         if not A or 0 == len(A):
             return 0
 
-        start = 0
-        pre_in_range_number_index = -1
+        length = 0
+        pre_in_range_number_length = 0
         result = 0
-
         for index in range(len(A)):
             if A[index] > R:
-                start = -1
-                pre_in_range_number_index = -1
+                length = 0
+                pre_in_range_number_length = 0
+            elif L <= A[index]:
+                length = length + 1
+                pre_in_range_number_length = length
+                result = result + length
             else:
-                if start < 0:
-                    start = index
-
-                if L <= A[index]:
-                    pre_in_range_number_index = index
-                    result = result + index - start + 1
-                elif pre_in_range_number_index >= 0:
-                    result = result + pre_in_range_number_index - start + 1
+                length = length + 1
+                result = result + pre_in_range_number_length
 
         return result
 
