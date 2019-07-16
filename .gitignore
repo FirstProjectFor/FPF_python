@@ -10,3 +10,7 @@ __pycache__
 tests/test.*
 tests/test.*
 demo/log.txt
+
+# vs code
+.vscode/
+venv/ 

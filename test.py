@@ -1,11 +1,23 @@
-from dataclasses import dataclass
+import requests
+import json
 
+file = "D:\\Untitled-1.txt"
 
-@dataclass
-class Person:
-    x: float = 0
-    y: int = 1
-    z: str = 2
+result = []
+try:
+    with open(file, 'r', encoding='utf-8') as temp:
+        for line in temp.readlines():
+            start = line.index('{')
+            end = len(line)
+            result.append(line[start:end])
+except IOError as e:
+    print(e)
 
+print('number:' + str(len(result)))
 
-print(Person())
+url = 'http://www.baidu.com/'
+for j in result:
+    data = json.loads(j, encoding='utf-8')
+    response = requests.post(url, data)
+    print(response.ok)
+    print(response.text)
