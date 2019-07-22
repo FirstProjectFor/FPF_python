@@ -1,3 +1,5 @@
+numpy
+bson
 bs4
 pygame
 xpinyin
@@ -8,3 +10,5 @@ apscheduler
 pymongo
 zmq
 stomp.py
+pymongo=3.8.0
+Faker
