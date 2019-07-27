@@ -10,3 +10,7 @@ print()
 print('对角矩阵  np.eye(3):\n {}'.format(np.eye(3)))
 print()
 print('向量  np.array([1,  2,  3], dtype = complex):  \n{}'.format(np.array([1, 2, 3], dtype=complex)))
+
+print(type(np.NAN))
+print(type(np.NAN))
+print(type(np.NAN))
