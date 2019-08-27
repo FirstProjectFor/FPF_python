@@ -11,5 +11,7 @@ apscheduler
 pymongo
 zmq
 stomp.py
-pymongo=3.8.0
+pymongo
 Faker
+matplotlib
+opencv-python
