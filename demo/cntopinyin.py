@@ -1,7 +1,7 @@
 from xpinyin import Pinyin
 
 p = Pinyin()
-pinyin = p.get_pinyin("孙飞龙", splitter="", show_tone_marks=False, convert="lower")
+pinyin = p.get_pinyin("孙飞龙", splitter="", convert="lower")
 first_char = p.get_initials("孙飞龙", splitter="").lower()
 print(pinyin)
 print(first_char)
