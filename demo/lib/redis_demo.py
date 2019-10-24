@@ -1,4 +1,5 @@
 import redis
+from threading import Thread
 
 rdc = redis.Redis(host='192.168.0.201', port=6379)
 
@@ -47,6 +48,26 @@ def redis_set(rc: redis.Redis):
     print(rc.zcount(key, 0, 100))
     print(rc.zrange(key, 0, -1))
 
+
+def redis_monitor(rc: redis.Redis):
+    with rc.monitor() as m:
+        [print(command) for command in m.listen()]
+
+
+class MonitorThread(Thread):
+
+    def __init__(self, thread_id: int, name: str):
+        Thread.__init__(self)
+        self.thread_id = thread_id
+        self.name = name
+
+    def run(self):
+        redis_monitor(rdc)
+
+
+t1 = MonitorThread(1, '1')
+t1.setDaemon(True)
+t1.start()
 
 get_set(rdc)
 expire_ttl(rdc)
