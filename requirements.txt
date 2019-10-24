@@ -17,3 +17,4 @@ matplotlib
 opencv-python
 pymysql
 pika
+redis
