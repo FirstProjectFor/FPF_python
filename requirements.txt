@@ -16,3 +16,4 @@ Faker
 matplotlib
 opencv-python
 pymysql
+pika
